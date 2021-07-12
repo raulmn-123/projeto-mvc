@@ -13,15 +13,24 @@ class View {
 	}
 
 	//método responsável por retornar o conteudo renderizado de uma view 
-	public static function render($view)
+	public static function render($view, $vars = [])
 	{
 
 		//CONTEUDO DA VIEW
-
 		$contentView = self::getContentView($view);
 
+		$keys = array_keys($vars);
+
+		$keys = array_map(function($item) {
+
+			return '{{'.$item.'}}';
+
+		}, $keys);
+
+
+
 		//RETORNA CONTEUDO RENDERIZADO
-		return $contentView;
+		return str_replace($keys, array_values($vars), $contentView);
 	}
 }
 
