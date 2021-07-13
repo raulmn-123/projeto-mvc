@@ -13,9 +13,7 @@ class Home extends Page {
 
 
 		$content = View::render('pages/home', [
-			'name'=>$obOrganization->name, 
-			'description'=>$obOrganization->description,
-			'site'=>$obOrganization->site
+			'name'=>$obOrganization->name
 		]);
 
 		return parent::getPage('Raul Mariaci neto', $content); 
